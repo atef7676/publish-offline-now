@@ -29,6 +29,15 @@ import Wallet from "./pages/Wallet";
 import Favorites from "./pages/Favorites";
 import Pricing from "./pages/Pricing";
 import TagResults from "./pages/TagResults";
+import AdminReview from "./pages/AdminReview";
+import AdminUsers from "./pages/AdminUsers";
+import AdminStats from "./pages/AdminStats";
+import AdminAuditLogs from "./pages/AdminAuditLogs";
+import Inbox from "./pages/Inbox";
+import MyListings from "./pages/MyListings";
+import CompleteProfile from "./pages/CompleteProfile";
+import AccountActivity from "./pages/AccountActivity";
+import Portfolio from "./pages/Portfolio";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +78,17 @@ const App = () => (
                   <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
                   <Route path="/wallet" element={<Wallet />} />
                   <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
+                  <Route path="/inbox" element={<ProtectedRoute><Inbox /></ProtectedRoute>} />
+                  <Route path="/me/listings" element={<ProtectedRoute><MyListings /></ProtectedRoute>} />
+                  <Route path="/complete-profile" element={<ProtectedRoute><CompleteProfile /></ProtectedRoute>} />
+                  <Route path="/account-activity" element={<ProtectedRoute><AccountActivity /></ProtectedRoute>} />
+                  <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
+
+                  {/* Admin pages */}
+                  <Route path="/admin/review" element={<ProtectedRoute><AdminReview /></ProtectedRoute>} />
+                  <Route path="/admin/users" element={<ProtectedRoute><AdminUsers /></ProtectedRoute>} />
+                  <Route path="/admin/stats" element={<ProtectedRoute><AdminStats /></ProtectedRoute>} />
+                  <Route path="/admin/logs" element={<ProtectedRoute><AdminAuditLogs /></ProtectedRoute>} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
