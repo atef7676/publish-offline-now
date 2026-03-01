@@ -39,7 +39,7 @@ const Pricing = () => {
             </div>
           )}
         </div>
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className={`sahfy-card p-8 ${!isPro ? 'ring-2 ring-primary' : ''}`}>
             <h3 className="font-display text-2xl font-bold mb-2">{t('free')}</h3>
             <p className="text-muted-foreground mb-6">{t('freePlanDesc')}</p>
@@ -67,6 +67,21 @@ const Pricing = () => {
             {!user ? <Button asChild className="w-full"><Link to="/login">{t('loginToSubscribe')}</Link></Button>
               : isPro ? <Button disabled className="w-full">{t('currentPlan')}</Button>
               : <Button className="w-full"><Zap className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />{t('activatePro')}</Button>}
+          </div>
+          <div className="sahfy-card p-8 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">{isRTL ? 'للمؤسسات' : 'Enterprise'}</div>
+            <h3 className="font-display text-2xl font-bold mb-2">{isRTL ? 'المؤسسات' : 'Enterprise'}</h3>
+            <p className="text-muted-foreground mb-6">{isRTL ? 'للفرق والشركات الكبيرة' : 'For teams and larger organizations'}</p>
+            <div className="text-4xl font-bold mb-6">$50<span className="text-lg text-muted-foreground font-normal">{t('perMonth')}</span></div>
+            <ul className={`space-y-3 mb-8 text-sm ${isRTL ? 'text-right' : ''}`}>
+              <li className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}><Check className="w-4 h-4 text-secondary" />{isRTL ? 'كل مميزات Pro' : 'Everything in Pro'}</li>
+              <li className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}><Check className="w-4 h-4 text-secondary" /><strong>{isRTL ? '500 عملة شهرياً' : '500 coins/month'}</strong></li>
+              <li className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}><Check className="w-4 h-4 text-secondary" />{isRTL ? 'وصول غير محدود للملفات' : 'Unlimited profile access'}</li>
+              <li className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}><Check className="w-4 h-4 text-secondary" />{isRTL ? 'تصدير البيانات' : 'Data export'}</li>
+              <li className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}><Check className="w-4 h-4 text-secondary" />{isRTL ? 'دعم مخصص' : 'Dedicated support'}</li>
+            </ul>
+            {!user ? <Button asChild className="w-full"><Link to="/login">{t('loginToSubscribe')}</Link></Button>
+              : <Button className="w-full"><Zap className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />{isRTL ? 'ترقية للمؤسسات' : 'Upgrade to Enterprise'}</Button>}
           </div>
         </div>
       </div>
