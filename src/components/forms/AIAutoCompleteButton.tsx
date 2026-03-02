@@ -4,7 +4,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import CountrySelect from '@/components/ui/CountrySelect';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { countries } from '@/data/countries';
 import { toast } from 'sonner';
 import { Sparkles, Loader2, ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -111,12 +112,16 @@ const AIAutoCompleteButton = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1">
               <Label className="text-xs">{isRTL ? 'البلد (اختياري)' : 'Country (optional)'}</Label>
-              <CountrySelect
-                value={hintCountry}
-                onChange={setHintCountry}
-                // placeholder={isRTL ? 'اختر البلد' : 'Select country'}
-                // className="h-9"
-              />
+              <Select value={hintCountry} onValueChange={setHintCountry}>
+                <SelectTrigger className="h-9">
+                  <SelectValue placeholder={isRTL ? 'اختر البلد' : 'Select country'} />
+                </SelectTrigger>
+                <SelectContent>
+                  {countries.map((c) => (
+                    <SelectItem key={c.code} value={c.code}>{c.name}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="space-y-1">
               <Label className="text-xs">{isRTL ? 'الرابط (اختياري)' : 'URL (optional)'}</Label>

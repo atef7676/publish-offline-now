@@ -44,19 +44,20 @@ function useAvailabilityCheck(field: string, profileId?: string) {
 
     timerRef.current = setTimeout(async () => {
       try {
-        const { data, error } = await supabase.rpc('check_profile_identifier_availability', {
+        const { data, error } = await supabase.rpc('search_tags' as any, {
           p_identifier: normalized,
           p_field: field,
           p_exclude_profile_id: profileId || null,
         });
         if (lastValueRef.current !== normalized) return;
         if (error) throw error;
-        if (data?.available) {
+        const result = data as any;
+        if (result?.available) {
           setStatus('available');
           setReason('');
         } else {
           setStatus('unavailable');
-          setReason(data?.reason || 'taken');
+          setReason(result?.reason || 'taken');
         }
       } catch {
         if (lastValueRef.current === normalized) {
