@@ -38,7 +38,9 @@ import MyListings from "./pages/MyListings";
 import CompleteProfile from "./pages/CompleteProfile";
 import AccountActivity from "./pages/AccountActivity";
 import Portfolio from "./pages/Portfolio";
-
+import SubmitJournalist from "./pages/SubmitJournalist";
+import SubmitPublication from "./pages/SubmitPublication";
+import ExportContacts from "./pages/ExportContacts";
 const queryClient = new QueryClient();
 
 const App = () => (
