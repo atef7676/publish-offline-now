@@ -185,9 +185,9 @@ const PublicationProfileForm = ({
   const toggleArrayItem = (field: string, value: string) => {
     const current = (formData as any)[field] || [];
     if (current.includes(value)) {
-      updateField(field, current.filter((v: string) => v !== value));
+      updateField(field as any, current.filter((v: string) => v !== value));
     } else {
-      updateField(field, [...current, value]);
+      updateField(field as any, [...current, value]);
     }
   };
 

@@ -215,7 +215,7 @@ const JournalistProfileForm = ({
     fetchUserEmail();
   }, []);
 
-  const updateField = (field: string, value: any) => draftUpdateField(field, value);
+  const updateField = (field: string, value: any) => draftUpdateField(field as any, value);
 
   const toggleArrayItem = (field: string, item: string) => {
     setFormData((prev: any) => ({
