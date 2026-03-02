@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -41,6 +42,22 @@ import Portfolio from "./pages/Portfolio";
 import SubmitJournalist from "./pages/SubmitJournalist";
 import SubmitPublication from "./pages/SubmitPublication";
 import ExportContacts from "./pages/ExportContacts";
+import OpportunitiesDirectory from "./pages/OpportunitiesDirectory";
+import CreateOpportunity from "./pages/CreateOpportunity";
+import OpportunityDetail from "./pages/OpportunityDetail";
+import ManageOpportunities from "./pages/ManageOpportunities";
+import MyApplications from "./pages/MyApplications";
+import MonitoringDashboard from "./pages/MonitoringDashboard";
+import NewsIntelligence from "./pages/NewsIntelligence";
+import AlertsDigests from "./pages/AlertsDigests";
+import ArchiveSearch from "./pages/ArchiveSearch";
+import ArticleStudio from "./pages/ArticleStudio";
+import LiveStream from "./pages/LiveStream";
+import TwitterFeeds from "./pages/TwitterFeeds";
+import ProfileAnalytics from "./pages/ProfileAnalytics";
+import PressReleaseAnalyzer from "./pages/PressReleaseAnalyzer";
+import VerifyEmail from "./pages/VerifyEmail";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -59,6 +76,7 @@ const App = () => (
                   <Route path="/register" element={<Register />} />
                   <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route path="/reset-password" element={<ResetPassword />} />
+                  <Route path="/verify-email" element={<VerifyEmail />} />
                   <Route path="/sitemap" element={<Sitemap />} />
                   <Route path="/pricing" element={<Pricing />} />
                   <Route path="/tags/:slug" element={<TagResults />} />
@@ -75,6 +93,23 @@ const App = () => (
                   <Route path="/companies/:slug" element={<CompanyProfile />} />
                   <Route path="/publications/:slug" element={<PublicationProfile />} />
 
+                  {/* Opportunities */}
+                  <Route path="/opportunities" element={<OpportunitiesDirectory />} />
+                  <Route path="/opportunities/create" element={<ProtectedRoute><CreateOpportunity /></ProtectedRoute>} />
+                  <Route path="/opportunities/:id" element={<OpportunityDetail />} />
+                  <Route path="/opportunities/manage" element={<ProtectedRoute><ManageOpportunities /></ProtectedRoute>} />
+                  <Route path="/opportunities/applications" element={<ProtectedRoute><MyApplications /></ProtectedRoute>} />
+
+                  {/* Monitoring & Intelligence */}
+                  <Route path="/monitoring" element={<ProtectedRoute><MonitoringDashboard /></ProtectedRoute>} />
+                  <Route path="/monitoring/intelligence" element={<ProtectedRoute><NewsIntelligence /></ProtectedRoute>} />
+                  <Route path="/monitoring/alerts" element={<ProtectedRoute><AlertsDigests /></ProtectedRoute>} />
+                  <Route path="/monitoring/archive" element={<ProtectedRoute><ArchiveSearch /></ProtectedRoute>} />
+                  <Route path="/monitoring/articles" element={<ProtectedRoute><ArticleStudio /></ProtectedRoute>} />
+                  <Route path="/monitoring/stream" element={<ProtectedRoute><LiveStream /></ProtectedRoute>} />
+                  <Route path="/twitter-feeds" element={<TwitterFeeds />} />
+                  <Route path="/press-release-analyzer" element={<ProtectedRoute><PressReleaseAnalyzer /></ProtectedRoute>} />
+
                   {/* Authenticated user pages */}
                   <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
                   <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
@@ -85,6 +120,12 @@ const App = () => (
                   <Route path="/complete-profile" element={<ProtectedRoute><CompleteProfile /></ProtectedRoute>} />
                   <Route path="/account-activity" element={<ProtectedRoute><AccountActivity /></ProtectedRoute>} />
                   <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
+                  <Route path="/analytics" element={<ProtectedRoute><ProfileAnalytics /></ProtectedRoute>} />
+
+                  {/* Submission Pages */}
+                  <Route path="/submit/journalist" element={<ProtectedRoute><SubmitJournalist /></ProtectedRoute>} />
+                  <Route path="/submit/publication" element={<ProtectedRoute><SubmitPublication /></ProtectedRoute>} />
+                  <Route path="/admin/export" element={<ProtectedRoute><ExportContacts /></ProtectedRoute>} />
 
                   {/* Admin pages */}
                   <Route path="/admin/review" element={<ProtectedRoute><AdminReview /></ProtectedRoute>} />
